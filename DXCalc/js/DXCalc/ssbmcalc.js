@@ -126,8 +126,7 @@ var ssbmcalc = {
             x_1st: (xy - 0.051) * Math.cos(theta),
             y_1st: (xy - 0.051) * Math.sin(theta)
         };
-console.log(obj.x_1st);
-console.log(obj.y_1st);
+
         return obj;
     },
 
