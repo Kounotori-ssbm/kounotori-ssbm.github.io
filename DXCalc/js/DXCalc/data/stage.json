@@ -1,0 +1,65 @@
+{
+  "FD": {
+    "name_en": "Final Destination",
+    "name_ja": "終点",
+    "ground_height": 0.0001,
+    "deadline_up": 188,
+    "deadline_down": -140,
+    "deadline_left": -246,
+    "deadline_right": 246
+  },
+  "BF": {
+    "name_en": "Battlefield",
+    "name_ja": "戦場",
+    "ground_height": 0.0001,
+    "deadline_up": 200,
+    "deadline_down": -108.8,
+    "deadline_left": -224,
+    "deadline_right": 224
+  },
+  "DL": {
+    "name_en": "Dream Land",
+    "name_ja": "旧プププランド",
+    "ground_height": 0.0089,
+    "deadline_up": 250,
+    "deadline_down": -123,
+    "deadline_left": -255,
+    "deadline_right": 255
+  },
+  "FoD": {
+    "name_en": "Fountain of Dreams",
+    "name_ja": "夢の泉",
+    "ground_height": 0.002875,
+    "deadline_up": 202.5,
+    "deadline_down": -146.25,
+    "deadline_left": -198.75,
+    "deadline_right": 198.75
+  },
+  "YS": {
+    "name_en": "Yoshi's Story",
+    "name_ja": "ヨッシーストーリー",
+    "ground_height": 0.0001,
+    "deadline_up": 168,
+    "deadline_down": -91,
+    "deadline_left": -175.7,
+    "deadline_right": 173.59999
+  },
+  "PS": {
+    "name_en": "Pokemon Stadium",
+    "name_ja": "ポケモンスタジアム",
+    "ground_height": 0.0001,
+    "deadline_up": 180,
+    "deadline_down": -111,
+    "deadline_left": -230,
+    "deadline_right": 230
+  },
+  "TEST": {
+    "name_en": "Test Stage",
+    "name_ja": "テストステージ",
+    "ground_height": 0.0001,
+    "deadline_up": 200.48717,
+    "deadline_down": -186.56071,
+    "deadline_left": -1016.31250,
+    "deadline_right": 885.92554
+  }
+}

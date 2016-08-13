@@ -1,0 +1,64 @@
+{
+  "display_data": [
+    {"store": {"visible": true, "name_en": null, "name_ja": null}}      
+  ],
+  "stored_data": [
+    {"remove": {"visible": true, "name_en": null, "name_ja": null}},
+    {"char": {"visible": true, "name_en": "Char", "name_ja": "ｷｬﾗ"}}
+  ],
+  "hitbox": [
+    {"move": {"visible": true, "name_en": "Move", "name_ja": "ﾜｻﾞ"}},
+    {"id": {"visible": true, "name_en": "ID", "name_ja": "ID"}},
+    {"damage": {"visible": true, "name_en": "%", "name_ja": "%"}},
+    {"angle": {"visible": true, "name_en": "Angle", "name_ja": "ﾍﾞｸﾄﾙ"}},
+    {"base_kb": {"visible": true, "name_en": "BKb", "name_ja": "R付加"}},
+    {"kb_growth": {"visible": true, "name_en": "KbG", "name_ja": "R影響"}},
+    {"weight_based_kb": {"visible": true, "name_en": "WBKb", "name_ja": "R固定"}},
+    {"effect": {"visible": true, "name_en": "Effect", "name_ja": "属性"}},
+    {"shield_damage": {"visible": true, "name_en": "Shield Damage", "name_ja": "盾削り"}},
+    {"ground_borne": {"visible": true, "name_en": "Ground Borne", "name_ja": "地上ﾋｯﾄ"}},
+    {"air_borne": {"visible": true, "name_en": "Air Borne", "name_ja": "空中ﾋｯﾄ"}},
+    {"clang": {"visible": true, "name_en": "Clang", "name_ja": "相殺"}},
+    {"bone": {"visible": true, "name_en": "Bone", "name_ja": "Bone"}},
+    {"size": {"visible": true, "name_en": "Size", "name_ja": "Size"}},
+    {"x_pos": {"visible": true, "name_en": "X-Pos", "name_ja": "X-Pos"}},
+    {"y_pos": {"visible": true, "name_en": "Y-Pos", "name_ja": "Y-Pos"}},
+    {"z_pos": {"visible": true, "name_en": "Z-Pos", "name_ja": "Z-Pos"}},
+    {"sfx_type": {"visible": true, "name_en": "SFX Type", "name_ja": "効果音"}},
+    {"sfx_size": {"visible": true, "name_en": "SFX Size", "name_ja": "音量"}},
+    {"unknown1": {"visible": false, "name_en": "?1", "name_ja": "?1"}},
+    {"unknown2": {"visible": false, "name_en": "?2", "name_ja": "?2"}},
+    {"unknown3": {"visible": false, "name_en": "?3", "name_ja": "?3"}},
+    {"unknown4": {"visible": false, "name_en": "?4", "name_ja": "?4"}},
+    {"command": {"visible": false, "name_en": "Cmd", "name_ja": "Cmd"}}
+  ],
+  "frame_advantage": [
+    {"char": {"visible": true, "name_en": "Char", "name_ja": "ｷｬﾗ"}},
+    {"move": {"visible": true, "name_en": "Move", "name_ja": "ﾜｻﾞ"}},
+    {"id": {"visible": true, "name_en": "ID", "name_ja": "ID"}},
+    {"staled_damage": {"visible": true, "toFixed": 2, "name_en": "Staled %", "name_ja": "実与 %"}},
+    {"hitlag": {"visible": true, "name_en": "Hitlag", "name_ja": "ﾋｯﾄｽﾄｯﾌﾟ"}},
+    {"shield_stun": {"visible": true, "name_en": "Shield Stun", "name_ja": "ｶﾞｰﾄﾞ硬直"}},
+    {"hit_frame": {"visible": true, "name_en": "Hit Frame", "name_ja": "ﾋｯﾄﾌﾚｰﾑ"}},
+    {"guard_advantage_frame": {"visible": true, "name_en": "Guard Adv.", "name_ja": "対ｶﾞｰﾄﾞ有利ﾌﾚｰﾑ"}}
+  ],
+  "hit_calculator": [
+    {"char": {"visible": true, "name_en": "Char", "name_ja": "ｷｬﾗ"}},
+    {"move": {"visible": true, "name_en": "Move", "name_ja": "ﾜｻﾞ"}},
+    {"id": {"visible": true, "name_en": "ID", "name_ja": "ID"}},
+    {"hitlag": {"visible": true, "name_en": "Hitlag", "name_ja": "ﾋｯﾄｽﾄｯﾌﾟ"}},
+    {"victims_hitlag": {"visible": true, "name_en": "Victim's Hitlag", "name_ja": "対象ﾋｯﾄｽﾄｯﾌﾟ"}},
+    {"total_percent": {"visible": true, "toFixed": 2, "name_en": "Total %", "name_ja": "合計 %"}},
+    {"knockback": {"visible": true, "toFixed": 5, "name_en": "Knockback", "name_ja": "ふっとび値"}},
+    {"hit_stun": {"visible": true, "name_en": "Hit Stun", "name_ja": "食らい硬直"}},
+    {"hit_advantage": {"visible": true, "name_en": "Hit Adv.", "name_ja": "ﾋｯﾄ時有利ﾌﾚｰﾑ"}},
+    {"di_angle": {"visible": true, "toFixed": 5, "name_en": "DI Angle", "name_ja": "実ﾍﾞｸﾄﾙ"}},
+    {"launch_speed": {"visible": true, "toFixed": 5, "name_en": "Launch Speed", "name_ja": "初期合成ふっとび速度"}},
+    {"launch_speed_x": {"visible": true, "toFixed": 5, "name_en": "Launch Speed-X", "name_ja": "初期 X ふっとび速度"}},
+    {"launch_speed_y": {"visible": true, "toFixed": 5, "name_en": "Launch Speed-Y", "name_ja": "初期 Y ふっとび速度"}},
+    {"can_floortech": {"visible": true, "name_en": "FloorTech?", "name_ja": "床受け身?"}},
+    {"is_death": {"visible": true, "name_en": "Death?", "name_ja": "撃墜?"}},
+    {"kb32_percent": {"visible": true, "toFixed": 2, "name_en": "Kb32 %", "name_ja": "ふっとび値 32 ﾋｯﾄ前 %"}},
+    {"kb80_percent": {"visible": true, "toFixed": 2, "name_en": "Kb80 %", "name_ja": "ふっとび値 80 ﾋｯﾄ前 %"}}
+  ]
+}

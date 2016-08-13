@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DXCalc</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <link href="css/DXCalc.css" rel="stylesheet" />
+        <script src="js/libs/jquery/jquery.js" type="text/javascript" /></script>
+        <script src="js/libs/jqueryui/jquery-ui.js" type="text/javascript" /></script>
+        <script src="js/libs/swiper/js/swiper.min.js" type="text/javascript" /></script>
+        <link href="js/libs/swiper/css/swiper.min.css" rel="stylesheet" />
+        <link href="css/responsiveDataTable.css" rel="stylesheet" />
+        <script src="js/DXCalc/converter.js" type="text/javascript" /></script>
+        <script src="js/DXCalc/ssbmcalc.js" type="text/javascript" /></script>
+        <script src="js/DXCalc/DXCalcUI.js" type="text/javascript" /></script>
+        <link href="js/hitboxSlider.css" rel="stylesheet" />
+        <script src="js/hitboxSlider.js" type="text/javascript"></script>
+        <script src="js/hbplayer.js" type="text/javascript"></script>
+        <script src="js/ccchart-min.js" type="text/javascript"></script>
+        <script src="js/octagon.js" type="text/javascript" /></script>
+        <script src="libs/c3/d3.min.js" type="text/javascript" charset="utf-8" /></script>
+        <script src="libs/c3/c3.min.js" type="text/javascript" /></script>
+        <link href="libs/c3/c3.min.css" rel="stylesheet" type="text/css" />
+        <style>
+            html,body {
+                position: relative;
+                min-height: 100%;
+                height: auto;
+                //height: 100%; // vertical
+            }
+            .swiper-container {
+                min-height: 100%;
+                height: auto;
+                //height: 100%; // vertical
+            }
+            input[type=number] {
+                width: 64px;
+            }
+            input.stick_value {
+                height: 32px;
+            }
+            div.stick_angle_left {
+                float: left;
+            }
+            div.right {
+                text-align: right;
+            }
+        </style>
+        <script>
+            jQuery( function() {
+                jQuery('#jquery-ui-toggle').button();
+                jQuery('#jquery-ui-toggle').click(function () {
+                    jQuery('#jquery-ui-effect').toggle('blind', '', 700);
+                } );
+            } );
+        </script>
+    </head>
+    <body style="height: 100%">
+        <script>
+            $(document).ready(function () {
+                var swiper = new Swiper('.swiper-container', {
+                    pagination: '.swiper-pagination',
+                    paginationClickable: true,
+                    loop: false,
+                    keyboardControl: true,
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    onlyExternal: true
+                });
+                var DXCalc = new DXCalcUI();
+                var octagon = new OctagonSimulator();
+            });
+        </script>
+        <h1>DXCalc</h1>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <h2>Hitbox Data</h2>
+                    <span class="dxcalc icon attacker" id="char_icon"></span>
+                    <select class="dxcalc list attacker"></select>
+                    <select class="dxcalc list move"></select><br />
+
+                    <table class="dxcalc cf" id="display_move_data" border="1" style="display: none;">
+                        <thead><tr></tr></thead>
+                        <tbody><tr></tr></tbody>
+                    </table>
+                    <table class="dxcalc cf" id="display_data">
+                        <thead class="cf"><tr></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                    <div>
+                        <label>HitboxSlider:<input type="checkbox" class="dxcalc" id="show_hitbox_slider" checked /></label>
+                        <div class="dxcalc" id="hitbox_slider"></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <h2>Stored Data</h2>
+                    <button id="jquery-ui-toggle">Open / Close</button>
+                    <div id="jquery-ui-effect" class="ui-widget-content ui-corner-all">
+                        <table class="dxcalc cf" id="stored_data">
+                            <thead class="cf"><tr></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div>
+                        Stale Move Queue: 
+                        <label><input type="checkbox" class="dxcalc" name="stalemoves_queue" />, </label> 
+                        <label><input type="checkbox" class="dxcalc" name="stalemoves_queue" />, </label> 
+                        <label><input type="checkbox" class="dxcalc" name="stalemoves_queue" />, </label> 
+                        <label><input type="checkbox" class="dxcalc" name="stalemoves_queue" />, </label> 
+                        <label><input type="checkbox" class="dxcalc" name="stalemoves_queue" />, </label> 
+                        <label><input type="checkbox" class="dxcalc" name="stalemoves_queue" />, </label> 
+                        <label><input type="checkbox" class="dxcalc" name="stalemoves_queue" />, </label> 
+                        <label><input type="checkbox" class="dxcalc" name="stalemoves_queue" />, </label> 
+                        <label><input type="checkbox" class="dxcalc" name="stalemoves_queue" />, </label><br />
+                        Stale Moves Scale: <span class="dxcalc" id="stalemoves_scale">100</span> %
+                    </div>
+                    <h2>Frame Advantage</h2>
+                    <div>
+                        <label>IASA: <input type="checkbox" id="iasa" class="dxcalc frame_adv_cond" checked /></label>, 
+                        <label>Land: <input type="checkbox" id="land" class="dxcalc frame_adv_cond" checked /></label>（
+                        <label>L-Cancel: <input type="checkbox" id="l_cancel" class="dxcalc frame_adv_cond" checked /></label>, 
+                        <label>Auto Cancel [4 frames]: <input type="checkbox" id="auto_cancel" class="dxcalc frame_adv_cond" /></label>）
+                    </div>
+                    <table class="dxcalc cf" id="frame_advantage">
+                        <thead class="cf"><tr></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="swiper-slide">
+                    <h2>Hit Calculator</h2>
+                    <div>
+                        Victim: <br />
+                        <span class="dxcalc icon victim" id="victim_icon"></span>
+                        <select class="dxcalc list victim"></select><br />
+                        Weight: <span id="weight"></span><br />
+                        <label>Current %: <input type="number" step="any" min="0" max="999" id="current_percent" class="dxcalc hit_calc victim" value="0" /> %</label><br />
+                        <label>Borne: Ground<input type="radio" class="dxcalc hit_calc victim" name="borne" value="ground" checked /></label> / <label>Air<input type="radio" class="dxcalc hit_calc victim" name="borne" value="air" /></label>, <br />
+                        <label>Crouch: <input type="checkbox" id="crouch" class="dxcalc hit_calc victim" /></label>, 
+                        <label>Smash Charge: <input type="checkbox" id="smash_charge" class="dxcalc hit_calc victim" /></label>
+                        <span style="display: none;" id="funbari_checkbox">
+                            , <label>Yoshi's Double Jump: <input type="checkbox" id="funbari" class="dxcalc hit_calc victim" /></label>
+                        </span>
+                        <p>
+                            <div class="stick_angle_left">
+                                Stick's Angle:
+                                <div class="right">
+                                    <label><input type="tel" size="3" id="stick_angle" class="dxcalc hit_calc victim" value="null" /> °</label><br />
+                                    <label>X: <input type="number" step="0.0125" min="-1" max="1" id="stick_value_x" class="octagon_simulator stick_value" value="0" /></label><br />
+                                    <label>Y: <input type="number" step="0.0125" min="-1" max="1" id="stick_value_y" class="octagon_simulator stick_value" value="0" /></label><br />
+                                </div>
+                            </div>
+                            <div class="octagon_simulator plain"></div>
+                        </p>
+                        Stage: <select class="dxcalc list stage"></select> (Y:<input type="number" step="any" id="start_y" class="dxcalc hit_calc victim" value="" />)
+                    </div>
+                    <table class="dxcalc cf" id="hit_calculator">
+                        <thead class="cf"><tr></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                    <h2>Knockback Graph</h2>
+                    <canvas id="graph"></canvas>
+                </div>
+                <div class="swiper-slide">
+                    <h3>Issues</h3>
+                    <ul>
+                        <li></li>
+                    </ul>
+                    <h3>Credit</h3>
+                    <ul>
+                        <li>DXCalc by <a href="https://twitter.com/@Kounotori_ssbm" target="_blank">@Kounotori_ssbm</a></li>
+                        <li>Hitbox Data Spreadsheet by <a href="https://twitter.com/Toomai_Glttrshn" target="_blank">@Toomai_Glttrshn</a></li>
+                        <li><a href="http://smashboards.com/threads/tool-knockback-launch-speed-hitstun-hitlag-shieldstun-calculation-v1-11.324878/" target="_blank">Reference</a> of Stored Data Calculation:  by <a href="https://twitter.com/Strong_Badam" target="_blank">@Strong_Badam</a></li>
+                        <li>Movie Player by <a href="https://twitter.com/ato_ssbm" target="_blank">@ato_ssbm</a> (modified by <a href="https://twitter.com/@Kounotori_ssbm" target="_blank">@Kounotori_ssbm</a>)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </body>
+</html>

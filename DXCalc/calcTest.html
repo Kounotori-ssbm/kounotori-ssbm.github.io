@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DXCalc</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <script src="js/libs/jquery/jquery.js" type="text/javascript" /></script>
+        <script src="js/DXCalc/ssbmcalc.js" type="text/javascript" /></script>
+    </head>
+    <body>
+        <script>
+            var percent = 44;
+            var weight = 75;
+            var gravity = 2.8;
+            var borne = 'ground';
+            //borne = 'air';
+            
+            var damage = 12;
+            var angle = 290;
+            //angle = -70;
+            var BK = 10;
+            var KBG = 100;
+            var WDSK = 0;
+            
+            
+            var knockback = ssbmcalc.knockback(percent, weight, damage, damage, BK, KBG, WDSK, false);
+            var launch_speed = ssbmcalc.launch_speed(knockback, angle, borne);
+            var actual_angle = ssbmcalc.actual_angle(launch_speed.x, launch_speed.y);
+            //actial_angle=65
+            //actual_angle=65.2149115128211
+            
+            
+            var stick_angle = ['null', 0, 45, 90, 135], di_angle = [], di_launch_speed = [], angle_ok = [], x_ok = [], y_ok = [],
+                compAngle = [65.53944, 50.62559, 63.36855, 68.62647, 81.00941],
+                compX = [0.9097220171215599, 1.3936729142723057, 0.98481, 0.80073, 0.34344],
+                compY = [1.9995525600177622, 1.6980813869579523, 1.96366, 2.04564, 2.16976];
+            
+            for (var i = 0; i < stick_angle.length; i++) {
+                di_angle.push(ssbmcalc.DIed_angle(stick_angle[i], actual_angle));
+                di_launch_speed.push(ssbmcalc.di_launch_speed(di_angle[i], launch_speed.x, launch_speed.y));
+                angle_ok.push(compAngle[i] - di_angle[i]);
+                x_ok.push(compX[i] - di_launch_speed[i].x_1st);
+                y_ok.push(compY[i] - di_launch_speed[i].y_1st);
+                
+                $('body').append('<p><table border="1"><tr><td>Input</td><td>'+stick_angle[i]+'</td></tr><tr><td>DI Angle</td><td>'+di_angle[i]+'</td><td>'+angle_ok[i]+'</td></tr><tr><td>DI_Launch-X(1st Frame)</td><td>'+di_launch_speed[i].x_1st+'</td><td>'+x_ok[i]+'</td></tr><tr><td>DI_Launch-Y(1st Frame)</td><td>'+di_launch_speed[i].y_1st+'</td><td>'+y_ok[i]+'</td></tr></table></p>');
+            }
+            
+            document.write('Actual Angle:'+actual_angle);
+        </script>
+        
+    </body>
+</html>

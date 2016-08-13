@@ -1,0 +1,93 @@
+/*
+    http://design-spice.com/2012/11/01/responsive-table/
+*/
+
+/*clearfix*/
+.cf:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+* html .cf {
+    zoom: 1;
+}
+*:first-child+html .cf {
+    zoom: 1;
+}
+
+table.cf {
+    border-collapse: collapse;
+}
+table.cf th, td {
+    margin: 0;
+    padding: 5px;
+    border: 1px solid #babcbf;
+}
+table.cf th {
+    background: #e6e6e6;
+    text-align: center;
+}
+
+
+@media only screen and (max-width: 1024px) {
+    table.cf table {
+        display: block;
+        position: relative;
+        width: 80%;
+    }
+    table.cf thead {
+        display: block;
+        float: left;
+    }
+    table.cf tbody {
+        display: block;
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    table.cf thead tr {
+        display: block;
+    }
+    table.cf th {
+        display: block;
+        text-align: right;
+    }
+    table.cf tbody tr {
+        display: inline-block;
+        vertical-align: top;
+    }
+    table.cf td {
+        display: block;
+    }
+
+    /* borderの調整 */
+    table.cf th {
+        border-bottom: 0;
+    }
+    table.cf td {
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+    table.cf tbody tr {
+        border-right: 1px solid #babcbf;
+    }
+    table.cf th:last-child, td:last-child {
+        border-bottom: 1px solid #babcbf;
+    }
+}
+
+table.cf button {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0px;
+    font-size: small;
+}
+table.cf button font {
+    font-size: xx-large;
+}

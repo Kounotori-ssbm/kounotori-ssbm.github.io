@@ -1,0 +1,17 @@
+table.dxcalc > tbody .id, .damage, .angle, .base_kb, .kb_growth, .weight_based_kb, .shield_damage, .bone, .size, .x_pos, .y_pos, .z_pos, .staled_damage, .hitlag, .victims_hitlag, .shield_stun, .hit_frame, .guard_advantage_frame, .total_percent, .knockback, .hit_stun, .hit_advantage, .di_angle, .launch_speed, .launch_speed_x, .launch_speed_y, .kb32_percent, .kb80_percent  {
+  text-align: right;
+}
+
+
+table.dxcalc > tbody .char, .move, .effect, .ground_borne, .air_borne, .clang, .sfx_type, .sfx_size, .can_floortech, .is_death {
+    text-align: center;
+}
+
+
+div.hbplayer {
+    text-align: right;
+}
+
+div.hbplayer > input[type=number] {
+    width: 36px;
+}
