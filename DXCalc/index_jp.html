@@ -62,7 +62,7 @@
                     prevButton: '.swiper-button-prev',
                     onlyExternal: true
                 });
-                var DXCalc = new DXCalcUI();
+                var DXCalc = new DXCalcUI('all', 'Japanese');
                 var octagon = new OctagonSimulator();
             });
         </script>
@@ -70,7 +70,7 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <h2>Hitbox Data</h2>
+                    <h2>攻撃判定データ</h2>
                     <span class="dxcalc icon attacker" id="char_icon"></span>
                     <select class="dxcalc list attacker"></select>
                     <select class="dxcalc list move"></select><br />
@@ -84,12 +84,12 @@
                         <tbody></tbody>
                     </table>
                     <div>
-                        <label>HitboxSlider:<input type="checkbox" class="dxcalc" id="show_hitbox_slider" checked /></label>
+                        <label>攻撃判定表示:<input type="checkbox" class="dxcalc" id="show_hitbox_slider" checked /></label>
                         <div class="dxcalc" id="hitbox_slider"></div>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <h2>Stored Data</h2>
+                    <h2>格納したデータ</h2>
                     <button id="jquery-ui-toggle">Open / Close</button>
                     <div id="jquery-ui-effect" class="ui-widget-content ui-corner-all">
                         <table class="dxcalc cf" id="stored_data">
@@ -98,7 +98,7 @@
                         </table>
                     </div>
                     <div>
-                        Stale Move Queue: 
+                        ワンパターン相殺履歴: 
                         <label><input type="checkbox" class="dxcalc" name="stalemoves_queue" />, </label> 
                         <label><input type="checkbox" class="dxcalc" name="stalemoves_queue" />, </label> 
                         <label><input type="checkbox" class="dxcalc" name="stalemoves_queue" />, </label> 
@@ -108,14 +108,14 @@
                         <label><input type="checkbox" class="dxcalc" name="stalemoves_queue" />, </label> 
                         <label><input type="checkbox" class="dxcalc" name="stalemoves_queue" />, </label> 
                         <label><input type="checkbox" class="dxcalc" name="stalemoves_queue" />, </label><br />
-                        Stale Moves Scale: <span class="dxcalc" id="stalemoves_scale">100</span> %
+                        ワンパターン相殺倍率: <span class="dxcalc" id="stalemoves_scale">100</span> %
                     </div>
-                    <h2>Frame Advantage</h2>
+                    <h2>有利フレーム</h2>
                     <div>
                         <label>IASA: <input type="checkbox" id="iasa" class="dxcalc frame_adv_cond" checked /></label>, 
-                        <label>Land: <input type="checkbox" id="land" class="dxcalc frame_adv_cond" checked /></label>（
-                        <label>L-Cancel: <input type="checkbox" id="l_cancel" class="dxcalc frame_adv_cond" checked /></label>, 
-                        <label>Auto Cancel: <input type="checkbox" id="auto_cancel" class="dxcalc frame_adv_cond" /></label>）
+                        <label>着地: <input type="checkbox" id="land" class="dxcalc frame_adv_cond" checked /></label>（
+                        <label>着地キャンセル: <input type="checkbox" id="l_cancel" class="dxcalc frame_adv_cond" checked /></label>, 
+                        <label>オートキャンセル: <input type="checkbox" id="auto_cancel" class="dxcalc frame_adv_cond" /></label>）
                     </div>
                     <table class="dxcalc cf" id="frame_advantage">
                         <thead class="cf"><tr></tr></thead>
@@ -123,22 +123,22 @@
                     </table>
                 </div>
                 <div class="swiper-slide">
-                    <h2>Hit Calculator</h2>
+                    <h2>ヒット時計算機</h2>
                     <div>
-                        Victim: <br />
+                        対象: <br />
                         <span class="dxcalc icon victim" id="victim_icon"></span>
                         <select class="dxcalc list victim"></select><br />
-                        Weight: <span id="weight"></span><br />
-                        <label>Current %: <input type="number" step="any" min="0" max="999" id="current_percent" class="dxcalc hit_calc victim" value="0" /> %</label><br />
-                        <label>Borne: Ground<input type="radio" class="dxcalc hit_calc victim" name="borne" value="ground" checked /></label> / <label>Air<input type="radio" class="dxcalc hit_calc victim" name="borne" value="air" /></label>, <br />
-                        <label>Crouch: <input type="checkbox" id="crouch" class="dxcalc hit_calc victim" /></label>, 
-                        <label>Smash Charge: <input type="checkbox" id="smash_charge" class="dxcalc hit_calc victim" /></label>
+                        体重: <span id="weight"></span><br />
+                        <label>現在の蓄積 %: <input type="number" step="any" min="0" max="999" id="current_percent" class="dxcalc hit_calc victim" value="0" /> %</label><br />
+                        <label>地上／空中: 地上<input type="radio" class="dxcalc hit_calc victim" name="borne" value="ground" checked /></label> / <label>空中<input type="radio" class="dxcalc hit_calc victim" name="borne" value="air" /></label>, <br />
+                        <label>しゃがみ耐性: <input type="checkbox" id="crouch" class="dxcalc hit_calc victim" /></label>, 
+                        <label>スマッシュホールド: <input type="checkbox" id="smash_charge" class="dxcalc hit_calc victim" /></label>
                         <span style="display: none;" id="funbari_checkbox">
-                            , <label>Yoshi's Double Jump: <input type="checkbox" id="funbari" class="dxcalc hit_calc victim" /></label>
+                            , <label>ヨッシーのふんばり耐性: <input type="checkbox" id="funbari" class="dxcalc hit_calc victim" /></label>
                         </span>
                         <p>
                             <div class="stick_angle_left">
-                                Stick's Angle:
+                                スティック入力角度:
                                 <div class="right">
                                     <label><input type="tel" size="3" id="stick_angle" class="dxcalc hit_calc victim" value="null" /> °</label><br />
                                     <label>X: <input type="number" step="0.0125" min="-1" max="1" id="stick_value_x" class="octagon_simulator stick_value" value="0" /></label><br />
@@ -147,13 +147,13 @@
                             </div>
                             <div class="octagon_simulator plain"></div>
                         </p>
-                        Stage: <select class="dxcalc list stage"></select> (Y:<input type="number" step="any" id="start_y" class="dxcalc hit_calc victim" value="" />)
+                        ステージ: <select class="dxcalc list stage"></select> (Y:<input type="number" step="any" id="start_y" class="dxcalc hit_calc victim" value="" />)
                     </div>
                     <table class="dxcalc cf" id="hit_calculator">
                         <thead class="cf"><tr></tr></thead>
                         <tbody></tbody>
                     </table>
-                    <h2>Knockback Graph</h2>
+                    <h2>ふっとび値グラフ</h2>
                     <canvas id="graph"></canvas>
                 </div>
                 <div class="swiper-slide">
