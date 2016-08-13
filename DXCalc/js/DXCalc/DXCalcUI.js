@@ -8,12 +8,12 @@ DXCalcUI = function (character, language) {
     this.calc_adv = [];
     this.stored_data = [];
 
-    this.icon_dir_path    =  '/DXCalc/js/DXCalc/icon';
-    this.table_columns_json = '/DXCalc/js/DXCalc/data/table_columns.json';
-    this.char_data_json   = '/DXCalc/js/DXCalc/data/character.json';
-    this.hitbox_data_json = '/DXCalc/js/DXCalc/data/hitbox.json';
-    this.move_data_json   = '/DXCalc/js/DXCalc/data/move.json';
-    this.stage_data_json  = '/DXCalc/js/DXCalc/data/stage.json';
+    this.icon_dir_path    =  'js/DXCalc/icon';
+    this.table_columns_json = 'js/DXCalc/data/table_columns.json';
+    this.char_data_json   = 'js/DXCalc/data/character.json';
+    this.hitbox_data_json = 'js/DXCalc/data/hitbox.json';
+    this.move_data_json   = 'js/DXCalc/data/move.json';
+    this.stage_data_json  = 'js/DXCalc/data/stage.json';
 
     this.letter = {
         store: '<font size="+1">&#x2611;</font>',
