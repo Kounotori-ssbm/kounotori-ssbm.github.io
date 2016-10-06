@@ -2,22 +2,110 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
+        <meta name="description" content="スマブラ DX プレイヤ／ Web プログラマの Kounotori の作品紹介ページです。">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Kounotori's Nest</title>
-        <!-- BootstrapのCSS読み込み -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <!-- jQuery読み込み -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <!-- BootstrapのJS読み込み -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			ul.navbar-nav .glyphicon, ul.navbar-nav .glyphicon-caption {
+                font-size: 20px;
+				text-align: center;
+			}
+			
+			ul.navbar-nav .glyphicon-caption {
+				font-size: 10px;
+				text-align: center;
+			}
+			
+			.row-eq-height {
+			    display: flex;
+			    flex-wrap: wrap;
+			}
+		</style>
     </head>
     <body>
-        <h1>Kounotori's Nest</h1>
-        <ul>
-            <li><a href="DXCalc/">DXCalc</a></li>
-            <li><a href="DXCalc/index_jp.html">DXCalc (Japanese mode)</a></li>
-        </ul>
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <h1 class="navbar-brand">Kounotori's Nest</h1>
+                    </div>
+                    <div class="collapse navbar-collapse" id="site-menu">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="https://github.com/kounotori-ssbm/"><span class="glyphicon glyphicon-home"><div class="glyphicon-caption">GitHub</div></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+			<div class="row row-eq-height">
+			    <div class="col-sm-6">
+			        <div class="page-header"><h2>Web Apps</h2></div>
+                    <ul>
+                        <li><a href="DXCalc/">DXCalc</a></li>
+                        <li><a href="DXCalc/index_jp.html">DXCalc (日本語)</a></li>
+                    </ul>
+                </div>
+			    <div class="col-sm-6">
+			        <div class="page-header"><h2>TechAcademy's Curriculum</h2></div>
+                    <ul>
+                        <li>Coming soon</li>
+                        <li>Coming soon</li>
+                        <li>Coming soon</li>
+                        <li>Coming soon</li>
+                    </ul>
+                </div>
+			</div>
+			<div class="row">
+			    <div class="col-sm-12">
+    			    <div class="page-header"><h2>自己紹介</h2></div>
+			        <ul>
+		                <li>
+		                    人となり
+			                <ul>
+			                    <li>1990年生まれ（26歳）</li>
+			                    <li>文系出身</li>
+			                    <li>狭く深く</li>
+			                    <li>有益情報まとめたがり</li>
+			                    <li>理屈っぽい</li>
+			                </ul>
+		                </li>
+			            <li>
+			                大乱闘スマッシュブラザーズDX
+			                <ul>
+			                    <li>ファルコ・フォックス使い</li>
+			                    <li>日本トップクラスプレイヤー</li>
+			                    <li>毎月大阪で、大会「<a href="http://mastehand.smashbr0s.com" target="_blank">MasterHand</a>」を開催</li>
+			                    <li>格闘ゲーム世界大会「EVOLUTION 2016」で 2372 人中 33 位</li>
+			                    <li>対人戦攻略サイト「<a href="http://dx.smashbr0s.com" target="_blank">スマブラDX 対戦攻略指南</a>」の構築・運営・記事執筆</li>
+			                </ul>
+		                </li>
+			            <li>
+			                Web エンジニア
+			                <ul>
+			                    <li>HTML, CSS, JavaScript, PHP, bash</li>
+			                    <li>来歴
+			                        <ul>
+        			                    <li>Web サイト作成を 10 歳からスタート、12 歳頃に HTML 手打ち開始</li>
+        			                    <li>14 歳の頃にプログラミング（Perl）に挑戦、しかし全く分からず挫折</li>
+        			                    <li>以後ほとんど HTML, CSS ばかり</li>
+        			                    <li>IT 企業を受けることにしたあたりで再度プログラミングに挑戦、大変粗末ながら JavaScript でスマブラ DX の計算ツール、PHP で大会用の参加者リスト Web アプリを開発</li>
+        			                    <li>新卒入社した企業では運用（割合大）と開発</li>
+        			                    <li>もっと開発がしたかったため転職活動を開始</li>
+        			                    <li>11 月より転職</li>
+        			                    <li>前職最終出勤～転職までの間、TechAcademy の Web アプリコース 4 週間を受講開始</li>
+    			                    </ul>
+			                    </li>
+			                </ul>
+		                </li>
+			        </ul>
+		        </div>
+            </div>
+        </div>
     </body>
 </html>
 
